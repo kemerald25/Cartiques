@@ -1,26 +1,271 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ─── CARTIQUE DESIGN SYSTEM ─────────────────────────────────────────────── */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Noir (dark) theme tokens */
+  --color-noir-bg: #080808;
+  --color-noir-surface: #111111;
+  --color-noir-surface-2: #1a1a1a;
+  --color-noir-border: #2a2a2a;
+  --color-noir-text: #f0ede8;
+  --color-noir-muted: #888880;
+  --color-gold: #c8a96e;
+  --color-gold-light: #e2c99a;
+  --color-gold-dark: #9a7a42;
+
+  /* Blanc (light) theme tokens */
+  --color-blanc-bg: #f8f6f2;
+  --color-blanc-surface: #ffffff;
+  --color-blanc-surface-2: #f0ede8;
+  --color-blanc-border: #ddd9d2;
+  --color-blanc-text: #1a1814;
+  --color-blanc-muted: #888070;
+
+  --font-display: var(--font-playfair);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── THEME VARIABLES ────────────────────────────────────────────────────── */
+:root,
+[data-theme="noir"] {
+  --bg: #080808;
+  --bg-surface: #111111;
+  --bg-surface-2: #1a1a1a;
+  --border: #2a2a2a;
+  --text: #f0ede8;
+  --text-muted: #888880;
+  --accent: #c8a96e;
+  --accent-light: #e2c99a;
+  --accent-dark: #9a7a42;
+}
+
+[data-theme="blanc"] {
+  --bg: #f8f6f2;
+  --bg-surface: #ffffff;
+  --bg-surface-2: #f0ede8;
+  --border: #ddd9d2;
+  --text: #1a1814;
+  --text-muted: #888070;
+  --accent: #a07840;
+  --accent-light: #c8a96e;
+  --accent-dark: #6a4e20;
+}
+
+/* ─── BASE ──────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  cursor: none;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  transition: background-color 0.6s ease, color 0.3s ease;
+}
+
+/* Hide default cursor globally — custom cursor handles it */
+* {
+  cursor: none !important;
+}
+
+/* ─── CUSTOM SCROLLBAR ──────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 99px;
+}
+
+/* ─── TYPOGRAPHY ────────────────────────────────────────────────────────── */
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+/* ─── KEYFRAME ANIMATIONS ───────────────────────────────────────────────── */
+@keyframes wipeIn {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  to {
+    clip-path: inset(0 0% 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes radialReveal {
+  from {
+    clip-path: circle(0% at var(--rx, 50%) var(--ry, 50%));
+  }
+  to {
+    clip-path: circle(150% at var(--rx, 50%) var(--ry, 50%));
+  }
+}
+
+@keyframes flipIn {
+  0% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes particleBurst {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--px, 0), var(--py, 0)) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes goldPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(200, 169, 110, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 16px rgba(200, 169, 110, 0);
+  }
+}
+
+@keyframes cartFly {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--fly-x, 200px), var(--fly-y, -200px)) scale(0.2);
+    opacity: 0;
+  }
+}
+
+@keyframes slideDrawer {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes numberFlip {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ─── UTILITY CLASSES ───────────────────────────────────────────────────── */
+.animate-wipe-in {
+  animation: wipeIn 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-surface) 25%,
+    var(--bg-surface-2) 50%,
+    var(--bg-surface) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+  border-radius: 4px;
+}
+
+.radial-wipe {
+  animation: radialReveal 0.7s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.gold-glow {
+  animation: goldPulse 2s ease-in-out infinite;
+}
+
+/* ─── GLASS MORPHISM ────────────────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="blanc"] .glass {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* ─── SELECTION ─────────────────────────────────────────────────────────── */
+/* ─── SELECTION ─────────────────────────────────────────────────────────── */
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* ─── VIEW TRANSITIONS ────────────────────────────────────────────────── */
+::view-transition-group(root) {
+  animation-timing-function: var(--expo-out);
+}
+
+::view-transition-new(root) {
+  mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="white"/></svg>') center / 0% no-repeat;
+  animation: none;
+  mix-blend-mode: normal;
+  z-index: 9999;
+}
+
+::view-transition-old(root) {
+  animation: none;
+  mix-blend-mode: normal;
+  z-index: 1;
+}
+
+[data-theme="noir"]::view-transition-new(root),
+[data-theme="blanc"]::view-transition-new(root) {
+  animation: radialReveal 0.7s cubic-bezier(0.77, 0, 0.175, 1) forwards;
 }
