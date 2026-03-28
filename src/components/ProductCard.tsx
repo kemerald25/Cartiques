@@ -56,6 +56,7 @@ export default function ProductCard({
             src={product.images[0]}
             alt={product.name}
             fill
+            priority={index < 4}
             className="object-cover object-center"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
