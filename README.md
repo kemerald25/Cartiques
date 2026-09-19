@@ -1,44 +1,38 @@
-# Cartique
+# Italo Boutique
 
-Cartique is a futuristic, design-forward e-commerce experience tailored for high-end fashion and luxury gadgets. Built to feel more like a cinematic digital showroom than a typical online store, Cartique relies heavily on spatial aesthetics, bespoke micro-interactions, and flawless performance.
+Italo Boutique is an haute couture salon and sartorial e-commerce experience tailored for luxury fashion, liquid silk gowns, and bespoke tailoring. Built to evoke a high-end European-African editorial showroom, Italo Boutique marries classical Italian tailoring traditions with contemporary luxury aesthetics.
 
 ## 🚀 The Tech Stack
 
-- **Framework:** Next.js 14 (App Router)
+- **Framework:** Next.js (App Router)
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS (v4)
 - **Animations:** Framer Motion & CSS View Transitions API
 - **Icons:** Lucide React
 - **State Management:** React Context API & `useReducer`
+- **Currency:** Nigerian Naira (₦ NGN)
 
 ## ✨ Core Features
 
-### 1. Cinematic Aesthetics (Noir & Blanc)
-Cartique includes two bespoke themes: **Noir** (dark canvas with warm gold accents) and **Blanc** (clean editorial light mode).
-The theme toggle completely avoids jarring flashes or solid overlays. It leverages the cutting-edge **Document View Transitions API** to execute a perfect, hardware-accelerated **radial wipe** from the exact coordinate of your mouse click.
+### 1. Haute Couture & Boutique Collections
+Curated catalogues spanning **Couture & Gowns**, **Tailoring & Outerwear**, **Resort & Tops**, and **Artisanal Accessories**. Interactive category filter tabs allow smooth browsing with animated transitions.
 
-### 2. Spatial Custom Cursor
-Ditching the standard browser pointer, Cartique ships with a custom dual-element cursor: a precise dot and a trailing, physics-based outer ring.
-- **Product Hover:** The ring expands, morphs, and glows with brand colors.
-- **Button Hover:** The ring shrinks slightly to frame the interaction point perfectly.
+### 2. Nigerian Naira (₦ NGN) Luxury Pricing
+All products, quick-view sheets, cart drawers, and checkout steps are natively formatted in Nigerian Naira with realistic luxury boutique price points.
 
-### 3. Asymmetric Masonry Grid
-Products are systematically rendered through an asymmetric layout using tailored spans (tall, wide, normal) giving the grid an organic, editorial magazine vibe rather than a monotonous matrix.
+### 3. Responsive Mobile Navigation & Hamburger Menu
+An animated mobile hamburger button seamlessly opens a full-featured slide-out luxury navigation drawer with category shortcuts, bag counter, theme switch, and atelier details.
 
-### 4. Interactive Quick-View
-Hovering over any product card immediately presents a glassmorphic quick-view panel allowing users to:
-- Pick between available colors via a micro-animated swatch UI.
-- Select sizing.
-- Add items instantly to the cart via a satisfying sliding button animation.
+### 4. Fully Mobile-Responsive Checkout
+Overhauled multi-step checkout with:
+- Collapsible mobile order summary drawer for small screens.
+- Responsive, non-overflowing progress stepper.
+- Mobile touch-optimized form inputs with Nigerian address fields (States, Cities, phone).
+- Payment methods: Card and Dedicated Instant Bank Transfer.
+- Touch-friendly full-width action buttons and responsive confirmation modal.
 
-### 5. Elastic Cart Drawer
-A side drawer that relies strictly on fluid spring physics. It includes:
-- Animated entry/exit item lists matching layout changes.
-- Flip-counter quantitative adjustments.
-- Real-time subtotal calculations without layout shifts.
-
-### 6. Seamless Checkout Flow
-An uninterrupted, multi-step transition UI built with Framer's `<AnimatePresence>`. Users slide dynamically between Shipping, Payment, and Review screens without a single page reload or jarring route jump.
+### 5. Cinematic Aesthetics (Noir & Blanc)
+Two bespoke themes: **Noir** (dark canvas with warm gold accents) and **Blanc** (clean editorial light mode) with hardware-accelerated radial wipe transitions.
 
 ## 📂 Project Structure
 

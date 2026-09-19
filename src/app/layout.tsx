@@ -21,19 +21,22 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Cartique — Luxury Fashion & Gadgets",
+  title: "Italo Boutique — Haute Couture & Sartorial Luxury",
   description:
-    "A curated digital showroom for the discerning few. Where fashion meets technology without compromise.",
+    "An exclusive haute couture salon and sartorial house. Discover curated gowns, bespoke tailoring, fine silk, and luxury Italian-inspired craftsmanship.",
   keywords: [
-    "luxury fashion",
-    "premium gadgets",
-    "designer clothing",
-    "high-end electronics",
-    "Cartique",
+    "Italo Boutique",
+    "luxury boutique",
+    "haute couture",
+    "bespoke tailoring",
+    "designer dresses",
+    "silk evening gowns",
+    "luxury fashion Nigeria",
+    "Italian luxury",
   ],
   openGraph: {
-    title: "Cartique",
-    description: "Shop the extraordinary. Curated fashion & gadgets.",
+    title: "Italo Boutique",
+    description: "Haute Couture & Sartorial Luxury. Discover the boutique collection.",
     type: "website",
   },
 };

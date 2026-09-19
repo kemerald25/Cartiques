@@ -34,7 +34,7 @@ export default function ProductCard({
 
   return (
     <motion.div
-      className={`relative group overflow-hidden ${
+      className={`relative group overflow-hidden cursor-pointer ${
         spans[product.span || "normal"]
       }`}
       initial={{ opacity: 0, y: 50 }}
@@ -43,6 +43,7 @@ export default function ProductCard({
       transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1], delay: index * 0.1 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={() => setIsHovered((prev) => !prev)}
       data-cursor="product"
     >
       {/* Background/Image wrapper */}
@@ -94,11 +95,12 @@ export default function ProductCard({
       <AnimatePresence>
         {isHovered && (
           <motion.div
-            className="absolute inset-x-0 bottom-0 glass p-6 pt-8 flex flex-col gap-4"
+            className="absolute inset-x-0 bottom-0 glass p-6 pt-8 flex flex-col gap-4 z-20"
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Color Selection */}
             {product.colors.length > 1 && (

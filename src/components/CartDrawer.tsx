@@ -265,10 +265,10 @@ export default function CartDrawer() {
                   </AnimatePresence>
                 </div>
                 <p
-                  className="text-center text-xs mb-5"
-                  style={{ color: "var(--text-muted)" }}
+                  className="text-center text-[11px] mb-5"
+                  style={{ color: "var(--accent)" }}
                 >
-                  Shipping & taxes calculated at checkout
+                  Complimentary boutique delivery in Lagos & nationwide
                 </p>
 
                 <Link href="/checkout" onClick={handleCheckout}>

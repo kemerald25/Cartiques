@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* ─── CARTIQUE DESIGN SYSTEM ─────────────────────────────────────────────── */
+/* ─── ITALO BOUTIQUE DESIGN SYSTEM ─────────────────────────────────────── */
 
 @theme inline {
   /* Noir (dark) theme tokens */
@@ -58,10 +58,8 @@
 *::after {
   box-sizing: border-box;
 }
-
 html {
   scroll-behavior: smooth;
-  cursor: none;
 }
 
 body {
@@ -73,9 +71,14 @@ body {
   transition: background-color 0.6s ease, color 0.3s ease;
 }
 
-/* Hide default cursor globally — custom cursor handles it */
-* {
-  cursor: none !important;
+/* Hide default cursor only on devices with a mouse/pointer */
+@media (pointer: fine) {
+  html {
+    cursor: none;
+  }
+  * {
+    cursor: none !important;
+  }
 }
 
 /* ─── CUSTOM SCROLLBAR ──────────────────────────────────────────────────── */

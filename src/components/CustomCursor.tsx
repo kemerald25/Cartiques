@@ -16,6 +16,11 @@ export default function CustomCursor() {
   const springY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
+    // Only run custom cursor on devices with mouse/fine pointer
+    if (typeof window !== "undefined" && !window.matchMedia("(pointer: fine)").matches) {
+      return;
+    }
+
     const onMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
