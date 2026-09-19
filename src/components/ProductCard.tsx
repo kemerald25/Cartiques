@@ -26,21 +26,13 @@ export default function ProductCard({
     toggleCart();
   };
 
-  const spans = {
-    tall: "md:col-span-1 md:row-span-2 aspect-[3/4] md:aspect-auto",
-    wide: "md:col-span-2 md:row-span-1 aspect-[16/9] md:aspect-[2/1]",
-    normal: "md:col-span-1 md:row-span-1 aspect-square",
-  };
-
   return (
     <motion.div
-      className={`relative group overflow-hidden cursor-pointer ${
-        spans[product.span || "normal"]
-      }`}
-      initial={{ opacity: 0, y: 50 }}
+      className="relative group overflow-hidden cursor-pointer w-full aspect-[3/4] rounded-sm bg-[var(--bg-surface-2)] shadow-sm"
+      initial={{ opacity: 0, y: 35 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1], delay: index * 0.1 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1], delay: (index % 4) * 0.06 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => setIsHovered((prev) => !prev)}
@@ -65,26 +57,26 @@ export default function ProductCard({
       </div>
 
       {/* Persistent Info Gradient & Text */}
-      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6 pointer-events-none">
+      <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/90 via-black/45 to-transparent flex flex-col justify-end p-4 sm:p-5 pointer-events-none">
         <motion.div
-          animate={{ y: isHovered ? -10 : 0 }}
+          animate={{ y: isHovered ? -8 : 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
         >
-          <div className="flex justify-between items-end">
-            <div>
-              {product.badge && (
-                <span className="text-[10px] uppercase tracking-widest text-[var(--accent)] font-bold mb-2 block">
-                  {product.badge}
-                </span>
-              )}
-              <h3 className="text-white font-display text-2xl tracking-wide">
+          {product.badge && (
+            <span className="text-[9px] uppercase tracking-[0.25em] text-[var(--accent)] font-bold mb-1.5 block">
+              {product.badge}
+            </span>
+          )}
+          <div className="flex justify-between items-end gap-3">
+            <div className="min-w-0 flex-1">
+              <h3 className="text-white font-display text-base sm:text-lg tracking-wide truncate font-semibold">
                 {product.name}
               </h3>
-              <p className="text-white/70 text-sm mt-1">
+              <p className="text-white/70 text-xs mt-0.5 line-clamp-1 font-light">
                 {product.description}
               </p>
             </div>
-            <div className="text-white text-lg tracking-wider align-bottom mb-1">
+            <div className="text-[var(--accent-light)] font-semibold text-sm sm:text-base tracking-wider flex-shrink-0 whitespace-nowrap">
               {formatPrice(product.price)}
             </div>
           </div>
@@ -95,11 +87,11 @@ export default function ProductCard({
       <AnimatePresence>
         {isHovered && (
           <motion.div
-            className="absolute inset-x-0 bottom-0 glass p-6 pt-8 flex flex-col gap-4 z-20"
+            className="absolute inset-x-0 bottom-0 glass p-4 sm:p-5 pt-6 sm:pt-7 flex flex-col gap-3 sm:gap-4 z-20 backdrop-blur-xl"
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
-            transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+            transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Color Selection */}
@@ -163,7 +155,7 @@ export default function ProductCard({
             {/* Add to Cart Button */}
             <motion.button
               onClick={handleAddToCart}
-              className="mt-2 w-full py-4 bg-[var(--accent)] text-[var(--bg)] text-sm tracking-[0.2em] font-bold uppercase pointer-events-auto relative overflow-hidden group/btn"
+              className="mt-1 w-full py-3 sm:py-3.5 bg-[var(--accent)] text-[var(--bg)] text-xs sm:text-sm tracking-[0.2em] font-bold uppercase pointer-events-auto relative overflow-hidden group/btn rounded-sm"
               data-cursor="button"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}

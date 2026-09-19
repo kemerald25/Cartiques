@@ -124,21 +124,6 @@ export default function Navbar() {
 
         {/* Right actions */}
         <div className="relative z-10 flex items-center gap-3 sm:gap-4">
-          {/* Currency indicator */}
-          <div
-            className="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] tracking-wider font-medium border"
-            style={{
-              borderColor: "var(--border)",
-              color: "var(--accent)",
-              backgroundColor: "rgba(200,169,110,0.06)",
-            }}
-          >
-            <span className="font-bold">₦</span>
-            <span className="text-[10px] opacity-80 uppercase tracking-widest text-[var(--text)]">
-              NGN
-            </span>
-          </div>
-
           {/* Theme toggle */}
           <motion.button
             onClick={handleThemeToggle}
@@ -366,14 +351,6 @@ export default function Navbar() {
                 className="pt-6 border-t mt-8 space-y-4 text-xs"
                 style={{ borderColor: "var(--border)", color: "var(--text-muted)" }}
               >
-                <div className="flex items-center justify-between">
-                  <span className="uppercase tracking-widest text-[10px]">
-                    Currency
-                  </span>
-                  <span className="font-semibold text-[var(--accent)]">
-                    ₦ NGN (Nigerian Naira)
-                  </span>
-                </div>
                 <div className="flex items-center justify-between">
                   <span className="uppercase tracking-widest text-[10px]">
                     Atelier Locations
